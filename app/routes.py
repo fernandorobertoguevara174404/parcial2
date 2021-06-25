@@ -66,6 +66,7 @@ def logout():
 def notas_index():
     notas = Note.query.filter_by(users_id=current_user.id).all()
     return render_template("notas_index.html",notas = notas)
+    
 
 @app.route("/notas/<int:id>")
 @login_required
