@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 style="text-align: center; margin: 50px;">¡Bienvenid@ a la plataforma {{ current_user.username }}!</h1>
+    <p style="font-size: 50px; ">Opciones:</p>
+    <div style="font-size: 40px;"><a href="{{url_for('notas_index')}}">+Mis Notas</a></div>
+    <br>
+{% endblock %}

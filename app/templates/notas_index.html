@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="containers">
+    <h1 style="text-align: center;">Notas</h1>
+    <div style="text-align: center; font-size: 25px;">
+        <a style="text-align: center;" href="{{url_for('index')}}" class="btn btn-primary">Regresar a Inicio</a>
+        <a class="btn btn-primary" href="{{url_for('notas_create')}}">Crear una nota</a>
+    </div>
+    <div style="margin-left: 200px; margin-right: 200px;">
+        <h2 style="margin-bottom: 20px;">Notas personales: </h2>
+        <table class="table">
+            <thead class="thread-dark">
+                <tr>
+                    <th style="font-size: 30px;" scope="col">Nombre de nota</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for nota in notas %}
+                <tr>
+                    <td><a style="font-size: 25px;" href="{{url_for('notas_show', id=nota.id)}}">{{nota.name}}</a></td>
+                    <td><a class="btn btn-danger" href="{{ url_for('notas_destroy', id=nota.id) }}"> Eliminar nota</a></td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}
